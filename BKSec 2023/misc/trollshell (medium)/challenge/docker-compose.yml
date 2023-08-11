@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  app:
+    image: trollshell/v1
+    container_name: trollshell
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "${PUBLIC_PORT}:${PORT}"
+    restart: unless-stopped
+    environment:
+      - PORT=${PORT}

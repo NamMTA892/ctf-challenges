@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  app:
+    image: poem/v1
+    container_name: poem
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "${PUBLIC_PORT}:${PORT}"
+    restart: unless-stopped
+    environment:
+      PORT: ${PORT}
+      PHLAG: ${PHLAG}
+
